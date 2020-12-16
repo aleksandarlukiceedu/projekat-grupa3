@@ -1,0 +1,3 @@
+1|Knjiga 1|13123123213|Pera Peric|Vulkan|200|2020|750|roman
+2|Knjiga 2|1393623123|Marko Markovic|Laguna|250|2019|950|roman
+3|Knjiga 3|1393673123|Marko Peric|Laguna|450|2015|1650|roman
