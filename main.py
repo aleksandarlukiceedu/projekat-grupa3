@@ -1,5 +1,5 @@
 from korisnici.korisnik import prijava
-from knjige.knjiga import prikazi_knjige
+from knjige.knjiga import prikazi_knjige, pretrazi_knjige
 
 
 def meni_administrator(ulogovani_korisnik):
@@ -18,12 +18,11 @@ def meni_administrator(ulogovani_korisnik):
         if stavka == 1:
             prikazi_knjige()
         elif stavka == 2:
-            print("PRETRAGA KNJIGA")
+            pretrazi_knjige()
         elif stavka == 10:
             return
         else:
             print("Pogresan izbor!")
-
 
 
 def main():

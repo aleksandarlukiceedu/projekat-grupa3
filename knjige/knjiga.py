@@ -28,6 +28,60 @@ def prikazi_knjige():
     ispisi_knjige(knjige)
 
 
+def pretrazi_knjige():
+    print("-"*20)
+    print("1. Pretraga po sifri")
+    print("2. Pretraga po naslovu")
+    print("3. Pretraga po autoru")
+    print("4. Pretraga po kategoriji")
+    print("5. Pretraga po izdavacu")
+    print("6. Pretraga po ceni")
+    print("-" * 20)
+
+    stavka = int(input("Izaberite stavku: "))
+    knjige = []
+
+    if stavka == 1:
+        sifra = input("Unesite sifru: ")
+        knjige = pretraga_knjiga_jednakost("sifra", sifra)
+    elif stavka == 2:
+        naslov = input("Unesite naslov: ")
+        knjige = pretraga_knjiga_string("naslov", naslov)
+    elif stavka == 3:
+        autor = input("Unesite autora: ")
+        knjige = pretraga_knjiga_string("autor", autor)
+    elif stavka == 4:
+        kategorija = input("Unesite kategoriju: ")
+        knjige = pretraga_knjiga_string("kategorija", kategorija)
+    elif stavka == 5:
+        izdavac = input("Unesite izdavaca: ")
+        knjige = pretraga_knjiga_string("izdavac", izdavac)
+
+    ispisi_knjige(knjige)
+
+
+def pretraga_knjiga_jednakost(kljuc, vrednost):
+    knjige = ucitaj_knjige()
+    pronadjene_knjige = []
+
+    for knjiga in knjige:
+        if knjiga[kljuc] == vrednost:
+            pronadjene_knjige.append(knjiga)
+
+    return pronadjene_knjige
+
+
+def pretraga_knjiga_string(kljuc, vrednost):
+    knjige = ucitaj_knjige()
+    pronadjene_knjige = []
+
+    for knjiga in knjige:
+        if vrednost.lower() in knjiga[kljuc].lower():
+            pronadjene_knjige.append(knjiga)
+
+    return pronadjene_knjige
+
+
 def ispisi_knjige(knjige):
     zaglavlje = f"{'sifra':<10}" \
                f"{'naslov':<20}" \
@@ -43,6 +97,7 @@ def ispisi_knjige(knjige):
     print("-"*len(zaglavlje))
 
     for knjiga in knjige:
+
         za_ispis = f"{knjiga['sifra']:<10}" \
                    f"{knjiga['naslov']:<20}" \
                    f"{knjiga['autor']:<20}" \
